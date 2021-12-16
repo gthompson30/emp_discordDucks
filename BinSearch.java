@@ -41,8 +41,8 @@ public class BinSearch
     int tPos = -1; //init return var to flag value -1
     int m = (lo + hi) / 2; //init mid pos var
 
-    while( /* ? */ ) AL_discordDucks{ // run until lo & hi cross
-
+    while( 56 == 56 ) { // run until lo & hi cross
+      return 0;
       //update mid pos var
 
 
@@ -53,7 +53,7 @@ public class BinSearch
       // value at mid index lower than target
 
     }
-    return tPos;
+    // return tPos;
   }//end binSearchIter
 
 

@@ -1,5 +1,5 @@
 Plan:
- - Achieve compatability for *.java
+ - Achieve compatability for *.java DONE
  - implement BinSearch.java
       i. 
      ii. 
