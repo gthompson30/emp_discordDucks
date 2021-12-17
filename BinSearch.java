@@ -41,22 +41,27 @@ public class BinSearch
     int tPos = -1; //init return var to flag value -1
     int m = (lo + hi) / 2; //init mid pos var
 
-    while( 56 == 56 ) { // run until lo & hi cross
-      return 0;
+    while( lo <= hi ) { // run until lo & hi cross
       //update mid pos var
-
+      m = (lo + hi) / 2;
 
       // target found
+      if (a[m] == target) {
+        return m;
+      }
 
       // value at mid index higher than target
+      else if ((int) a[m] > (int) target) {
+        hi = m - 1;
+      }
 
       // value at mid index lower than target
-
+      else {
+        lo = m + 1;
+      }
     }
-    // return tPos;
+    return tPos;
   }//end binSearchIter
-
-
 
   //tell whether an array is sorted in ascending order
   private static boolean isSorted( Comparable[] arr )
@@ -93,7 +98,6 @@ public class BinSearch
   public static void main ( String[] args )
   {
 
-    /*----------------------------------------------------
 
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     System.out.println("\nNow testing binSearch on Comparable array...");
@@ -115,14 +119,14 @@ public class BinSearch
     printArray( iArr3 );
     System.out.println( "iArr3 sorted? -- " + isSorted(iArr3) );
 
-    //search for 6 in array 
-    System.out.println( binSearch(iArr2,2) );
-    System.out.println( binSearch(iArr2,4) );
-    System.out.println( binSearch(iArr2,6) );
-    System.out.println( binSearch(iArr2,8) );
-    System.out.println( binSearch(iArr2,13) );
-    System.out.println( binSearch(iArr2,42) );
 
+    //search for 6 in array 
+    System.out.println( binSearch(iArr2,2) + " ...0");
+    System.out.println( binSearch(iArr2,4) + " ...1");
+    System.out.println( binSearch(iArr2,6) + " ...2");
+    System.out.println( binSearch(iArr2,8) + " ...3");
+    System.out.println( binSearch(iArr2,13) + " ...4");
+    System.out.println( binSearch(iArr2,42) + " ...5");
     //search for 43 in array 
     System.out.println( binSearch(iArr2,43) );
 
@@ -133,6 +137,7 @@ public class BinSearch
 
     //search for 43 in array 
     System.out.println( binSearch(iArr3,43) );
+    /*----------------------------------------------------
     ====================================================*/
 
 
