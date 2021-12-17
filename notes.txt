@@ -2,3 +2,4 @@ NOTES
 
  >> Why are the algorithms returning -1 when they shouldn't?
  >> What is a comparable?
+ >> 
