@@ -17,14 +17,14 @@ public class LinSearch
     int i = 0;
 
     while ( i < a.length ) {
-      if (a[i] == target) {
+      if ((int) a[i] == (int) target) {
         tPos = i;
       }
+      //System.out.println(i);
       i++;
     }
     return tPos;
   }
-
 
   // utility/helper fxn to display contents of an array of Objects
   private static void printArray( Object[] arr )
