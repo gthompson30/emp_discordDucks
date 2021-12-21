@@ -28,15 +28,38 @@ public class SearchDriver {
 
 	public static void fullTest(Comparable[] nums, int numTests) {
 		int targetIndex, target;
-		System.out.println("----------------------------------------------------------------");
+		int[] binaryTimes = new int[numTests];
+		int[] linearTimes = new int[numTests];
+		int binaryTotal = 0;
+		int linearTotal = 0;
+		int binaryMin = 999999;
+		int binaryMax = 0;
+		int linearMin = 999999;
+		int linearMax = 0;
+		//System.out.println("----------------------------------------------------------------");
 
 		for (int i = 0; i < numTests; i++) {
                         targetIndex = (int) (Math.random() * (nums.length - 1));
                         target = (int) nums[targetIndex];
-                        System.out.println("Target Index: " + targetIndex);
-                        System.out.println("BinSearch time: " + testBin(nums, target) + "ms");
-                        System.out.println("LinSearch time: " + testLin(nums, target) + "ms\n");
+                        binaryTimes[i] = (int) testBin(nums, target);
+			binaryTotal += binaryTimes[i];
+                        linearTimes[i] = (int) testLin(nums, target);
+			linearTotal += linearTimes[i];
+
+			if (linearTimes[i] > linearMax) { linearMax = linearTimes[i]; }
+			if (linearTimes[i] < linearMin) { linearMin = linearTimes[i]; }
+			if (binaryTimes[i] > binaryMax) { binaryMax = binaryTimes[i]; }
+			if (binaryTimes[i] < binaryMin) { binaryMin = binaryTimes[i]; }
                 }
+
+		System.out.println("------------------------------------");
+		System.out.println("  Array Size: " + nums.length);
+		System.out.println("  # of tests: " + numTests + "\n");
+		System.out.println("  Average BinSearch time: " + (double) binaryTotal / numTests + "ms");
+		System.out.println("  Average LinSearch time: " + (double) linearTotal / numTests + "ms\n");
+		System.out.println("  BinSearch time range: [" + binaryMin + "ms, " + binaryMax + "ms]");
+		System.out.println("  LinSearch time range: [" + linearMin + "ms, " + linearMax + "ms]");
+		System.out.println("------------------------------------");
 	}
 
 	public static Comparable[] createAscendingArray(int n) {
@@ -65,11 +88,11 @@ public class SearchDriver {
                 nums = createAscendingArray(10_000_000);
                 fullTest(nums, 100);
 
-                nums = createAscendingArray(50_000_000);
+                nums = createAscendingArray(25_000_000);
                 fullTest(nums, 100);
 
-                //nums = createAscendingArray(50_000_000);
-                //fullTest(nums, 100);
+                nums = createAscendingArray(50_000_000);
+                fullTest(nums, 100);
 
 	}
 
