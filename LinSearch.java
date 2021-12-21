@@ -13,17 +13,16 @@ public class LinSearch
   **/
   public static int linSearch ( Comparable[] a, Comparable target )
   {
-    int tPos = -1;
     int i = 0;
 
     while ( i < a.length ) {
       if ((int) a[i] == (int) target) {
-        tPos = i;
+        return i;
       }
       //System.out.println(i);
       i++;
     }
-    return tPos;
+    return -1;
   }
 
   // utility/helper fxn to display contents of an array of Objects
